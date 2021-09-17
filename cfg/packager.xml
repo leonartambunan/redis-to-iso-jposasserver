@@ -505,7 +505,7 @@
             id="100"
             length="11"
             name="RECEIVING INSTITUTION IDENT CODE"
-            class="org.jpos.iso.IFA_LLNUM"/>
+            class="org.jpos.iso.IFA_LLCHAR"/>
     <isofield
             id="101"
             length="17"
