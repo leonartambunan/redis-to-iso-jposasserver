@@ -30,30 +30,31 @@ public class CbsService {
 
         logger.warn("sendToSwitching() is in progress");
 
-        final QMUX mux = NameRegistrar.get("mux."+channel+"-mux");
+        //final QMUX mux = NameRegistrar.get("mux."+channel+"-mux");
         boolean isClientConnected = true;
 
         ISOServer isoServer;
 
         if (isChannelServer) {
             isoServer = ISOServer.getServer(channel);
-            if (mux == null || isoServer == null) {
+            if (qmux == null || isoServer == null) {
                 isClientConnected = false;
             }
             else if (isoServer.getActiveConnections() == 0) {
                 isClientConnected = false;
             }
         }
+
         if (!isClientConnected) {
             logger.info("mux == null || isoServer == null || isoServer.getActiveConnections() == 0");
             throw new LinkIsDownException("Client is not connected");
         }
 
-        logger.info("KEY ISOMsg " + mux.getKey(isoRequest));
+        logger.info("KEY ISOMsg " + qmux.getKey(isoRequest));
 
-        isoResponse = mux.request(isoRequest, CBS_TIMEOUT);
+        isoResponse = qmux.request(isoRequest, CBS_TIMEOUT);
 
-        if (!mux.isConnected() && isoResponse == null) {
+        if (!qmux.isConnected() && isoResponse == null) {
             logger.info("r == link down ");
             throw new LinkIsDownException();
         }
