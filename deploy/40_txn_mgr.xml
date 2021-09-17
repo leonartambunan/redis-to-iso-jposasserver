@@ -6,42 +6,42 @@
     <property name="sessions" value="5"/>
 
     <participant class="id.co.bbw.spec.TxnManager" logger="Q2">
-        <property name="BANK.0800.060" value="validating_bitmap sendresponse" comment="BANK REQ SAF"/>
-        <property name="BANK.0800.061" value="validating_bitmap sendresponse" comment="BANK REQ SIGN ON"/>
-        <property name="BANK.0800.062" value="validating_bitmap sendresponse" comment="BANK REQ SIGN OFF"/>
-        <property name="BANK.0800.101" value="validating_request sendresponse" comment="BANK REQ KEYECHANGE"/>
-        <property name="BANK.0800.201" value="validating_bitmap sendresponse" comment="BANK REQ CUT OFF"/>
-        <property name="BANK.0800.301" value="validating_bitmap sendresponse" comment="BANK REQ ECHO"/>
+        <property name="DIGITALBANK.0800.060" value="validating_bitmap sendresponse"   comment="BANK REQ SAF"/>
+        <property name="DIGITALBANK.0800.061" value="validating_bitmap sendresponse"   comment="BANK REQ SIGN ON"/>
+        <property name="DIGITALBANK.0800.062" value="validating_bitmap sendresponse"   comment="BANK REQ SIGN OFF"/>
+        <property name="DIGITALBANK.0800.101" value="validating_request sendresponse"  comment="BANK REQ KEY EXCHANGE"/>
+        <property name="DIGITALBANK.0800.201" value="validating_bitmap sendresponse"   comment="BANK REQ CUT OFF"/>
+        <property name="DIGITALBANK.0800.301" value="validating_bitmap sendresponse"   comment="BANK REQ ECHO"/>
 
-        <property name="BANK.0810.060" value="" comment="BANK RESP SAF"/>
-        <property name="BANK.0810.061" value="" comment="BANK RESP SIGN ON"/>
-        <property name="BANK.0810.062" value="" comment="BANK RESP SIGN OFF"/>
-        <property name="BANK.0810.101" value="" comment="BANK RESP KEYECHANGE"/>
-        <property name="BANK.0810.201" value="" comment="BANK RESP CUT OFF"/>
-        <property name="BANK.0810.301" value="" comment="BANK RESP ECHO"/>
+        <property name="DIGITALBANK.0810.060" value="" comment="BANK RESP SAF"/>
+        <property name="DIGITALBANK.0810.061" value="" comment="BANK RESP SIGN ON"/>
+        <property name="DIGITALBANK.0810.062" value="" comment="BANK RESP SIGN OFF"/>
+        <property name="DIGITALBANK.0810.101" value="" comment="BANK RESP KEY EXCHANGE"/>
+        <property name="DIGITALBANK.0810.201" value="" comment="BANK RESP CUT OFF"/>
+        <property name="DIGITALBANK.0810.301" value="" comment="BANK RESP ECHO"/>
 
-        <property name="BANK.0200.30" value="validating_request sendresponse" comment="BANK BALINQ"/>
-        <property name="BANK.0200.01" value="validating_request sendresponse" comment="BANK WDW"/>
-        <property name="BANK.0200.41" value="validating_request sendresponse" comment="BANK TRANSFER"/>
-        <property name="BANK.0200.49" value="validating_request sendresponse" comment="BANK TRANSFER VA"/>
-        <property name="BANK.0200.50" value="validating_request sendresponse" comment="BANK BILLER"/>
+        <property name="DIGITALBANK.0200.30" value="validating_request sendresponse" comment="BANK BALINQ"/>
+        <property name="DIGITALBANK.0200.01" value="validating_request sendresponse" comment="BANK WDW"/>
+        <property name="DIGITALBANK.0200.41" value="validating_request sendresponse" comment="BANK TRANSFER"/>
+        <property name="DIGITALBANK.0200.49" value="validating_request sendresponse" comment="BANK TRANSFER VA"/>
+        <property name="DIGITALBANK.0200.50" value="validating_request sendresponse" comment="BANK BILLER"/>
 
-        <property name="BANK.0210.49" value="" comment="BANK RESP TRANSFER VA"/>
+        <property name="DIGITALBANK.0210.49" value="" comment="BANK RESP TRANSFER VA"/>
 
-        <property name="BANK.0200.71" value="validating_request sendresponse" comment="BANK INQBAL BCA-DANAMON"/>
-        <property name="BANK.0200.72" value="validating_request sendresponse" comment="BANK INQACC BCA-DANAMON"/>
-        <property name="BANK.0200.73" value="validating_request sendresponse" comment="BANK PINBUK BCA-DANAMON"/>
-        <property name="BANK.0200.74" value="validating_request sendresponse" comment="BANK IBFT BCA-DANAMON"/>
-        <property name="BANK.0200.75" value="validating_request sendresponse" comment="BANK INQTRANS BCA-DANAMON"/>
+        <property name="DIGITALBANK.0200.71" value="validating_request sendresponse" comment="BANK INQBAL BCA-DANAMON"/>
+        <property name="DIGITALBANK.0200.72" value="validating_request sendresponse" comment="BANK INQACC BCA-DANAMON"/>
+        <property name="DIGITALBANK.0200.73" value="validating_request sendresponse" comment="BANK PINBUK BCA-DANAMON"/>
+        <property name="DIGITALBANK.0200.74" value="validating_request sendresponse" comment="BANK IBFT BCA-DANAMON"/>
+        <property name="DIGITALBANK.0200.75" value="validating_request sendresponse" comment="BANK INQTRANS BCA-DANAMON"/>
 
-        <property name="BANK.0420.30" value="validating_request sendresponse" comment="BANK REV INQ-BAL"/>
-        <property name="BANK.0420.01" value="validating_request sendresponse" comment="BANK REV WDW"/>
-        <property name="BANK.0420.41" value="validating_request sendresponse" comment="BANK REV TRANSFER"/>
-        <property name="BANK.0420.50" value="validating_request sendresponse" comment="BANK REV BILLER"/>
-        <property name="BANK.0421.30" value="validating_request sendresponse" comment="BANK REV INQ-BAL"/>
-        <property name="BANK.0421.01" value="validating_request sendresponse" comment="BANK REV WDW"/>
-        <property name="BANK.0421.41" value="validating_request sendresponse" comment="BANK REV TRANSFER"/>
-        <property name="BANK.0421.50" value="validating_request sendresponse" comment="BANK REV BILLER"/>
+        <property name="DIGITALBANK.0420.30" value="validating_request sendresponse" comment="BANK REV INQ-BAL"/>
+        <property name="DIGITALBANK.0420.01" value="validating_request sendresponse" comment="BANK REV WDW"/>
+        <property name="DIGITALBANK.0420.41" value="validating_request sendresponse" comment="BANK REV TRANSFER"/>
+        <property name="DIGITALBANK.0420.50" value="validating_request sendresponse" comment="BANK REV BILLER"/>
+        <property name="DIGITALBANK.0421.30" value="validating_request sendresponse" comment="BANK REV INQ-BAL"/>
+        <property name="DIGITALBANK.0421.01" value="validating_request sendresponse" comment="BANK REV WDW"/>
+        <property name="DIGITALBANK.0421.41" value="validating_request sendresponse" comment="BANK REV TRANSFER"/>
+        <property name="DIGITALBANK.0421.50" value="validating_request sendresponse" comment="BANK REV BILLER"/>
     </participant>
 
 
@@ -66,35 +66,35 @@
     <group name="sendresponse">
         <participant class="id.co.bbw.spec.SendResponse" logger="Q2">
             <!-- BANK -->
-            <property name="BANK.0810" value="0,2,7,11,33,39,70" comment="BANK RESP NETWORK MANAGEMENT"/>
+            <property name="DIGITALBANK.0810" value="0,2,7,11,33,39,70" comment="BANK RESP NETWORK MANAGEMENT"/>
 
-            <property name="BANK.0210.30" comment="BANK RESP BALINQ"
+            <property name="DIGITALBANK.0210.30" comment="BANK RESP BALINQ"
                       value="0,2,3,4,7,11,12,13,15,29,31,32,33,37,39,41,49,50,54,102"/>
 
-            <property name="BANK.0210.01" comment="BANK RESP WDW"
+            <property name="DIGITALBANK.0210.01" comment="BANK RESP WDW"
                       value="0,2,3,4,7,11,12,13,15,29,31,32,33,37,39,41,49,50,54,102"/>
 
-            <property name="BANK.0210.34" comment="BANK RESP INQ-TRANSFER"
+            <property name="DIGITALBANK.0210.34" comment="BANK RESP INQ-TRANSFER"
                       value="0,2,3,4,7,11,12,13,15,29,31,32,33,37,39,41,48,49,50,63,104"/>
 
-            <property name="BANK.0210.41" comment="BANK RESP TRANSFER"
+            <property name="DIGITALBANK.0210.41" comment="BANK RESP TRANSFER"
                       value="0,2,3,4,7,11,12,13,15,29,31,32,33,37,39,41,48,49,50,102,104"/>
 
-            <property name="BANK.0210.49" comment="BANK RESP TRANSFER VA"
+            <property name="DIGITALBANK.0210.49" comment="BANK RESP TRANSFER VA"
                       value="0,2,3,4,7,11,12,13,15,18,29,32,33,37,39,41,43,48,49,50,61,63,102,103"/>
 
-            <property name="BANK.0210.50" comment="BANK RESP BILLER"
+            <property name="DIGITALBANK.0210.50" comment="BANK RESP BILLER"
                       value="0,2,3,4,7,11,12,13,15,29,31,32,33,37,39,41,48,49,50,63,102,104"/>
 
-            <property name="BANK.0210.71" comment="API RESP INQBAL BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
+            <property name="DIGITALBANK.0210.71" comment="API RESP INQBAL BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
 
-            <property name="BANK.0210.72" comment="API RESP INQACC BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
+            <property name="DIGITALBANK.0210.72" comment="API RESP INQACC BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
 
-            <property name="BANK.0210.73" comment="API RESP PINBUK BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
+            <property name="BANKDIGITALBANK.73" comment="API RESP PINBUK BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
 
-            <property name="BANK.0210.74" comment="API RESP IBFT BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
+            <property name="DIGITALBANK.0210.74" comment="API RESP IBFT BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
 
-            <property name="BANK.0210.75" comment="API RESP INQTRANS BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
+            <property name="DIGITALBANK.0210.75" comment="API RESP INQTRANS BCA-DANAMON" value="0,3,7,11,33,37,39,41,48,63,125"/>
 
         </participant>
     </group>
