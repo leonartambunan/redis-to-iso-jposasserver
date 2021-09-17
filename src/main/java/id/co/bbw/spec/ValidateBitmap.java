@@ -18,20 +18,15 @@ import static id.co.bbw.spec.IsoConstants.ResponseCode.RC_ERROR;
 public class ValidateBitmap extends BaseValidation implements TransactionParticipant, Configurable {
 
     private Configuration cfg;
-    //private final Log log;
-
-    public ValidateBitmap() {
-
-    }
 
     public int prepare(long l, Serializable serializable) {
-        //Trace trace = new Trace( "ValidateBitmap", "prepare()" );
+
+        logger.info("prepare");
 
         Context ctx = (Context) serializable;
         ISOMsg isoRequest = IsoUtils.getISORequest(ctx); //(ISOMsg) ctx.get("REQ");
         int result;
         try {
-
             //mengambil info bit/field yang dianggap mandatory
             String[] stringBitmap;
             if (isoRequest.hasField(IsoConstants.Field.NETWORK_MANAGEMENT_INFO)) {
@@ -41,8 +36,8 @@ public class ValidateBitmap extends BaseValidation implements TransactionPartici
                 //contohnya -> <property name="0200.300000" value="0,2,3" comment="BALINQ"/>
             }
 
-//        	 logger.info( "stringBitmap "+stringBitmap );
-//        	 logger.info( "stringBitmap.length "+stringBitmap.length );
+        	 logger.info( "stringBitmap "+stringBitmap );
+        	 logger.info( "stringBitmap.length "+stringBitmap.length );
 
             int[] b = new int[stringBitmap.length];
 
@@ -61,7 +56,7 @@ public class ValidateBitmap extends BaseValidation implements TransactionPartici
 
                 ctx.put(IsoConstants.CONTEXT_RSP, isoRequest);
                 setResponseCode(ctx, isoRequest, RC_ERROR,
-                        "MyBankFast", "ValidateBitmap.prepare()", "[01001] Fields invalid",
+                        "DigitalBank", "ValidateBitmap.prepare()", "[01001] Fields invalid",
                         " fields:" + StringUtils.printArray(stringBitmap));
 
                 result = ABORTED;
@@ -69,14 +64,14 @@ public class ValidateBitmap extends BaseValidation implements TransactionPartici
         } catch (ISOException ex) {
             ctx.put(IsoConstants.CONTEXT_RSP, isoRequest);
             setResponseCode(ctx, isoRequest, RC_ERROR,
-                    "MyBankFast", "ValidateBitmap.prepare()", "[01002] ISOException",
+                    "DigitalBank", "ValidateBitmap.prepare()", "[01002] ISOException",
                     "ISOException : " + ex.getMessage());
             logger.error("prepare", ex);
             result = ABORTED;
         } catch (Exception ex) {
             ctx.put(IsoConstants.CONTEXT_RSP, isoRequest);
             setResponseCode(ctx, isoRequest, RC_ERROR,
-                    "MyBankFast", "ValidateBitmap.prepare()", "[01003] Exception",
+                    "DigitalBank", "ValidateBitmap.prepare()", "[01003] Exception",
                     "Exception : " + ex.getMessage());
             logger.error("prepare", ex);
             result = ABORTED;
@@ -85,14 +80,16 @@ public class ValidateBitmap extends BaseValidation implements TransactionPartici
     }
 
     public void commit(long l, Serializable serializable) {
+        logger.info("commit");
     }
 
     public void abort(long l, Serializable srlzbl) {
+        logger.info("abort");
     }
 
     public void setConfiguration(Configuration c) {
+        logger.info("setConfiguration");
         this.cfg = c;
-        //ambil data di 20_txnmgr.xml 
     }
 
     private static final Logger logger = LoggerFactory.getLogger(ValidateBitmap.class);

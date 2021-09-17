@@ -56,12 +56,13 @@ public class CbsService {
 
         isoResponse = qmux.request(isoRequest, CBS_TIMEOUT);
 
-        if (!qmux.isConnected() && isoResponse == null) {
-            logger.info("r == link down ");
-            throw new LinkIsDownException();
-        }
+//        if (!qmux.isConnected() && isoResponse == null) {
+//            logger.info("r == link down ");
+//            throw new LinkIsDownException();
+//        }
+
         if (isoResponse == null) {
-            logger.info("r == null ");
+            logger.info("isoResponse == null ");
             throw new CBSTimeoutException("ISO response was not received within defined period");
         }
         logger.info("ISO Response : " + isoResponse.getMTI());

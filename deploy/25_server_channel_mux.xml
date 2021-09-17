@@ -4,7 +4,7 @@
     <in>digitalbank-receive</in>
     <out>digitalbank-send</out>
     <ready>digitalbank.ready</ready>
-<!--    <unhandled>digitalbank-unhandled</unhandled>-->
+    <unhandled>digitalbank-unhandled</unhandled>
 
     <request-listener class="id.co.bbw.spec.ServerListener"
                       logger="Q2"

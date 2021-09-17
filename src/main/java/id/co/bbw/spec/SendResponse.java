@@ -24,7 +24,7 @@ public class SendResponse implements AbortParticipant, Configurable {
     private static final Logger logger = LoggerFactory.getLogger(SendResponse.class);
 
     public int prepare(long l, Serializable srlzbl) {
-        logger.info("prepare({},{})",l,srlzbl.toString());
+        logger.info("prepare({},{})",l,srlzbl.getClass());
         Context ctx = (Context) srlzbl;
         ISOSource source = IsoUtils.getISOSource(ctx);// (ISOSource)
         if (source == null || !source.isConnected()) {
@@ -39,14 +39,14 @@ public class SendResponse implements AbortParticipant, Configurable {
     }
 
     public void commit(long l, Serializable srlzbl) {
-        logger.info("commit({},{})",l,srlzbl.toString());
+        logger.info("commit({},{})",l,srlzbl.getClass());
         sendResponse(l, (Context) srlzbl);
     }
 
     // 63 02 - credit
     // 01 debit
     public void abort(long l, Serializable srlzbl) {
-        logger.info("abort({},{})",l,srlzbl.toString());
+        logger.info("abort({},{})",l,srlzbl.getClass());
         sendResponse(l, (Context) srlzbl);
     }
 

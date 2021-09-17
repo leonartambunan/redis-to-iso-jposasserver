@@ -6,6 +6,7 @@ import org.jpos.core.Configuration;
 import org.jpos.iso.ISOMsg;
 import org.jpos.transaction.Context;
 import org.jpos.transaction.GroupSelector;
+import org.jpos.util.NameRegistrar;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
@@ -13,26 +14,19 @@ import java.io.Serializable;
 public class TxnManager implements GroupSelector, Configurable {
 
     private Configuration cfg;
-    //private final Log log;
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TxnManager.class);
 
     public TxnManager() {
         //log = Log.getLog("Q2", getClass().getName());
     }
 
+    String readyKey = "digitalbank.ready";
+
     public String select(long l, Serializable serializable) {
         logger.info("select(id,serializable)");
-        Context ctx = (Context) serializable;
-        ISOMsg isoMsg = IsoUtils.getISORequest(ctx); // (ISOMsg) ctx.get(SPEC.CONTEXT_REQ);
-//		logger.info( "toString : "+ctx.getMap() );
-//		logger.info( "ctx.getMap().get( SRC ) : "+ctx.getMap().get( "SRC" ) );
-//		logger.info( "ctx.getProfiler().toString() : "+ctx.getProfiler().toString() );
-//		logger.info( "m.getPackager().getDescription() : "+m.getPackager().getDescription() );
-//		logger.info( "m.getPackager().toString() : "+m.getPackager().toString() );
-//		logger.info( "m.getChildren() : "+m.getChildren() );
-//		logger.info( "m.getChildren().keySet().size() : "+m.getChildren().keySet().size() );
-//		logger.info( "m.getDirection() : "+m.getDirection() );
 
+        Context ctx = (Context) serializable;
+        ISOMsg isoMsg = IsoUtils.getISORequest(ctx);
 
         String groups = "";
         try {
@@ -40,7 +34,8 @@ public class TxnManager implements GroupSelector, Configurable {
             String isoMTI = isoMsg.getMTI();
 
             logger.info("get Groups " + channel + "." + isoMTI);
-            logger.info("[70]:" + isoMsg.getString(70) + " | [3]" + isoMsg.getString(3));
+            logger.info("Field[70]:{}",isoMsg.getString(70));
+            logger.info("Field[03]:{}",isoMsg.getString(3));
 
             String value;
 
@@ -59,7 +54,9 @@ public class TxnManager implements GroupSelector, Configurable {
 
             logger.warn("value:{}",value);
 
-            if (value.length() > 0) groups = cfg.get(value, "NOT_FOUND");
+            if (value.length() > 0) {
+                groups = cfg.get(value, "NOT_FOUND");
+            }
 
             // kalau groups berisi "NOT_FOUND" artinya tidak didefinisikan di
             // 20_tnxmgr.xml
@@ -71,6 +68,10 @@ public class TxnManager implements GroupSelector, Configurable {
                     ctx.put(IsoConstants.CONTEXT_RESPONSE_CODE, IsoConstants.ResponseCode.RC_APPROVED);
                     isoMsg.set(39,IsoConstants.ResponseCode.RC_APPROVED);
                     ctx.put(IsoConstants.CONTEXT_RSP, isoMsg);
+
+                    logger.error("readyKey:{}",readyKey);
+
+                    NameRegistrar.register(readyKey, true);
             } else {
                 logger.debug("its okay");
                 logger.debug("its okay");

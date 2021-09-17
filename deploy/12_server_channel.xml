@@ -14,4 +14,12 @@
 
   <in>digitalbank-send</in>
   <out>digitalbank-receive</out>
+
+  <attr name="minSessions" type="java.lang.Integer">10</attr>
+  <attr name="maxSessions" type="java.lang.Integer">250</attr>
+
+<!--  <property name="allow" value="192.168.1.1" />-->
+<!--  <property name="allow" value="10.0.0.2" />-->
+<!--  <property name="deny" value="10.0.*" />-->
+
 </server>

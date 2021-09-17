@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <txn name="txn" class="org.jpos.transaction.TransactionManager" logger="Q2">
-
     <property name="queue" value="TXNMGR"/>
     <property name="debug" value="true"/>
     <property name="sessions" value="5"/>
+    <property name="maxSessions" value="250"/>
 
     <participant class="id.co.bbw.spec.TxnManager" logger="Q2">
         <property name="DIGITALBANK.0800.060" value="validating_bitmap sendresponse"   comment="BANK REQ SAF"/>
@@ -53,7 +53,6 @@
                 artinya bit.0 , bit.7 , bit.11 , bit.70 ini dianggap mandatory (harus ada
                 semua) -->
             <property name="0800" value="0,7,11" comment="BANK SIGN ON"/>
-
         </participant>
     </group>
 

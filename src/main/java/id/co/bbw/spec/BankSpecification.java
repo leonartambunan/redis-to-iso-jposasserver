@@ -20,9 +20,8 @@ public class BankSpecification extends BaseValidation {
             String mti = isoRequest.getMTI();
             logger.info("mti : {}",mti);
             if (mti.equals(NETWORK_REQUEST)) {
-                String f48 = IsoUtils.getField(isoRequest, 48);
-                if (f48.length() > 0) {
-                }
+                //String f48 = IsoUtils.getField(isoRequest, 48);
+
             } else if (FINANCIAL_REQUEST.equals(mti)) {
                 //main task
                 isoRequest = checkRequest(ctx, isoRequest);
