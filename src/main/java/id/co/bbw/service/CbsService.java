@@ -23,11 +23,12 @@ public class CbsService {
     public ISOMsg sendToSwitching(final ISOMsg isoRequest) throws LinkIsDownException, CBSTimeoutException, NameRegistrar.NotFoundException, ISOException {
 
         String channel = "digitalbank";
-        boolean isChannelServer = false;
+
+        boolean isChannelServer = true;
 
         ISOMsg isoResponse=null;
 
-        logger.warn("sendToCBS() is in progress");
+        logger.warn("sendToSwitching() is in progress");
 
         final QMUX mux = NameRegistrar.get("mux."+channel+"-mux");
         boolean isClientConnected = true;
@@ -49,6 +50,7 @@ public class CbsService {
         }
 
         logger.info("KEY ISOMsg " + mux.getKey(isoRequest));
+
         isoResponse = mux.request(isoRequest, CBS_TIMEOUT);
 
         if (!mux.isConnected() && isoResponse == null) {

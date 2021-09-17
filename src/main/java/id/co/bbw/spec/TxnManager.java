@@ -73,6 +73,8 @@ public class TxnManager implements GroupSelector, Configurable {
                     ctx.put(IsoConstants.CONTEXT_RSP, isoMsg);
             } else {
                 logger.debug("its okay");
+                logger.debug("its okay");
+                logger.debug("its okay");
             }
 
         } catch (Exception ex) {
