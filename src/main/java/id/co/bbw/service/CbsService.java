@@ -52,6 +52,8 @@ public class CbsService {
 
         logger.info("KEY ISOMsg " + qmux.getKey(isoRequest));
 
+        logger.info("qmux connected ? {}",(qmux.isConnected()));
+
         isoResponse = qmux.request(isoRequest, CBS_TIMEOUT);
 
         if (!qmux.isConnected() && isoResponse == null) {
