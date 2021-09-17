@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>id.co.bbw</groupId>
-	<artifactId>redis-tojposasserver</artifactId>
+	<artifactId>mobile-sw-bridge</artifactId>
 	<version>0.0.1</version>
-	<name>jpos-springboot</name>
-	<description></description>
+	<name>mobile-sw-bridge</name>
+	<description>mobile-sw-bridge</description>
 
 	<properties>
 		<java.version>1.8</java.version>
