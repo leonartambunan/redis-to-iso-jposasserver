@@ -3,7 +3,7 @@
 <mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="digitalbank-mux">
     <in>digitalbank-receive</in>
     <out>digitalbank-send</out>
-    <ready>digitalbank-ready</ready>
+    <ready>digitalbank.ready</ready>
 <!--    <unhandled>digitalbank-unhandled</unhandled>-->
 
     <request-listener class="id.co.bbw.spec.ServerListener"
