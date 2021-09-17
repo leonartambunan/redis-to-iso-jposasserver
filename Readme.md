@@ -1,0 +1,6 @@
+##Build
+
+```mvn clean package```
+
+
+

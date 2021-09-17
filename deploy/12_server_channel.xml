@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server class="org.jpos.q2.iso.QServer"
+        logger="Q2"
+        name="digitalbank" >
+
+  <attr name="port" type="java.lang.Integer">9999</attr>
+
+  <channel name= "digitalbank-channel"
+           class="id.co.bbw.spec.BankChannel"
+           logger="Q2"
+           packager="org.jpos.iso.packager.GenericPackager">
+    <property name="packager-config" value="cfg/packager.xml" />
+  </channel>
+
+  <in>digitalbank-send</in>
+  <out>digitalbank-receive</out>
+</server>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="digitalbank-mux">
+    <in>digitalbank-receive</in>
+    <out>digitalbank-send</out>
+    <ready>digitalbank-ready</ready>
+<!--    <unhandled>digitalbank-unhandled</unhandled>-->
+
+    <request-listener class="id.co.bbw.spec.ServerListener"
+                      logger="Q2"
+                      realm="digitalbank-realm-mux">
+        <property name="channel_name" value="digitalbank"/>
+        <property name="is_server" value="true"/>
+    </request-listener>
+
+    <key>7, 11</key>
+</mux>
