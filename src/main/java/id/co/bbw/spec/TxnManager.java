@@ -69,6 +69,7 @@ public class TxnManager implements GroupSelector, Configurable {
                 logger.warn("NOT FOUND");
             } else if (isoMTI.equals(IsoConstants.NETWORK_REQUEST)) {
                     ctx.put(IsoConstants.CONTEXT_RESPONSE_CODE, IsoConstants.ResponseCode.RC_APPROVED);
+                    isoMsg.set(39,IsoConstants.ResponseCode.RC_APPROVED);
                     ctx.put(IsoConstants.CONTEXT_RSP, isoMsg);
             } else {
                 logger.debug("its okay");
