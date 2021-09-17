@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@ServletComponentScan
+//@ServletComponentScan
 public class MobileToSwitchingBridge implements CommandLineRunner {
 
 	public static void main(String[] args) {

@@ -10,13 +10,13 @@ import org.jpos.iso.packager.GenericPackager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -25,8 +25,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-@WebListener
-public class RedisPubSub implements ServletContextListener {
+@Component
+public class RedisPubSub  {
     @Autowired
     JedisPool jedisPool;
 
@@ -37,16 +37,6 @@ public class RedisPubSub implements ServletContextListener {
 
     public static final String REDIS_CHANNEL_REQUEST  = "channel_iso_online_req";
     public static final String REDIS_CHANNEL_RESPONSE = "channel_iso_online_res";
-
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        init();
-    }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        destroy();
-    }
 
     private final JedisPubSub jedisPubSub = new JedisPubSub() {
         @Override
@@ -88,7 +78,8 @@ public class RedisPubSub implements ServletContextListener {
     private ExecutorService publisherExecutor;
     private Future subscriberFuture;
 
-    private synchronized void init() {
+    @PostConstruct
+    public void init() {
 
         try {
             String userHome = System.getProperty("user.dir");
@@ -112,9 +103,12 @@ public class RedisPubSub implements ServletContextListener {
         }
     }
 
+
     private final RedisListenerTask redisListenerTask = new RedisListenerTask();
 
-    public synchronized void destroy() {
+
+    @PreDestroy
+    public void destroy() {
         if (subscriberFuture != null) {
             try {
                 jedisPubSub.unsubscribe();
