@@ -48,7 +48,7 @@ public class ValidateRequest extends BaseValidation implements TransactionPartic
                     result = PREPARED;
                 } else {
                     setResponseCode(ctx, isoRequest, rc,
-                            "MyBankFast", "ValidateRequest.prepare()",
+                            "DigitalBank", "ValidateRequest.prepare()",
                             "[02001] Reject dari SPEC.validateRequest() channel:" + IsoUtils.getCHANNEL(ctx), "");
 
                     result = ABORTED;
@@ -61,7 +61,7 @@ public class ValidateRequest extends BaseValidation implements TransactionPartic
         } catch (Exception ex) {
             ctx.put(IsoConstants.CONTEXT_RSP, isoRequest);
             setResponseCode(ctx, isoRequest, RC_ERROR,
-                    "MyBankFast", "ValidateRequest.prepare()",
+                    "DigitalBank", "ValidateRequest.prepare()",
                     "[02001] Exception Channel " + ctx.getString(IsoConstants.CONTEXT_CHANNEL) + " : " + ex.getMessage(),
                     "Exception : " + ex.getMessage());
             logger.error("prepare", ex);
