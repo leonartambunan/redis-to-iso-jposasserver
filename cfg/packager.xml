@@ -310,7 +310,7 @@
             id="61"
             length="99"
             name="RESERVED PRIVATE"
-            class="org.jpos.iso.IFA_LLLCHAR"/>
+            class="org.jpos.iso.IFA_LLCHAR"/>
     <isofield
             id="62"
             length="999"

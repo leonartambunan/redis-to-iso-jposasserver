@@ -27,7 +27,12 @@ public class Test {
         }
 
         isoMsg.set(29,"C00000000");
-        isoMsg.set(3,"C00000000");
+        isoMsg.set(31,"C00000000");
+
+
+        byte[] s = isoMsg.pack();
+
+        System.out.println(new String(s));
     }
 }
 
