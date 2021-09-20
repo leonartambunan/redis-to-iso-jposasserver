@@ -160,7 +160,7 @@
             id="31"
             length="9"
             name="AMOUNT, SETTLEMENT PROCESSING FEE"
-            class="org.jpos.iso.IFA_AMOUNT"/>
+            class="org.jpos.iso.IF_CHAR"/>
     <isofield
             id="32"
             length="11"
