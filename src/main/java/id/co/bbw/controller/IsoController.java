@@ -38,11 +38,14 @@ public class IsoController {
             jsonRequest = (JSONObject) parser.parse(request);
         } catch (ParseException e) {
             e.printStackTrace();
-            result.put("error","request contains malformed JSON");
+            result.put("error","Request contains malformed JSON");
             return result;
         }
 
-        System.out.println(request);
+        logger.info("Incoming request:");
+        logger.info(request);
+
+        ISOMsg isoResponse = null;
         try {
             ISOMsg msgRequest = new ISOMsg((String) jsonRequest.get("0"));
 
@@ -53,7 +56,7 @@ public class IsoController {
                 }
             }
 
-            ISOMsg isoResponse = qmux.request(msgRequest, 10 * 1000); //10 seconds timeout
+            isoResponse = qmux.request(msgRequest, 10 * 1000); //10 seconds timeout
 
             if(isoResponse == null) {
                 result.put("error", "timeout");
@@ -71,6 +74,7 @@ public class IsoController {
             }
         } catch (ISOException e) {
             logger.error(e.getMessage());
+            result.put("error", e.getMessage());
         }
 
         return result;
