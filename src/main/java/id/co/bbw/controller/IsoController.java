@@ -30,6 +30,7 @@ public class IsoController {
 
     @PostMapping("/isorequest")
     public Map<String, String> isorequest(@RequestBody String request){
+
         Map<String, String> result = new LinkedHashMap<>();
 
         JSONParser parser = new JSONParser();
@@ -59,7 +60,8 @@ public class IsoController {
             isoResponse = qmux.request(msgRequest, 10 * 1000); //10 seconds timeout
 
             if(isoResponse == null) {
-                result.put("error", "timeout");
+                result.put("isoSuccess", "false");
+                result.put("errorMessage", "timeout");
                 return result;
             }
 
@@ -72,9 +74,13 @@ public class IsoController {
                     result.put(i + "", value );
                 }
             }
+
+            result.put("isoSuccess", "true");
+            result.put("errorMessage", "");
         } catch (ISOException e) {
             logger.error(e.getMessage());
-            result.put("error", e.getMessage());
+            result.put("isoSuccess", "false");
+            result.put("errorMessage", e.getMessage());
         }
 
         return result;
