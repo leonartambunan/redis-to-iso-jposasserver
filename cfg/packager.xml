@@ -150,12 +150,12 @@
             id="29"
             length="9"
             name="AMOUNT, SETTLEMENT FEE"
-            class="org.jpos.iso.IFA_AMOUNT"/>
+            class="org.jpos.iso.IF_CHAR"/>
     <isofield
             id="30"
             length="9"
             name="AMOUNT, TRANSACTION PROCESSING FEE"
-            class="org.jpos.iso.IFA_AMOUNT"/>
+            class="org.jpos.iso.IF_CHAR"/>
     <isofield
             id="31"
             length="9"
