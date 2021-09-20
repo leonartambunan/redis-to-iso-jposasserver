@@ -42,7 +42,7 @@ public class ValidateBitmap extends BaseValidation implements TransactionPartici
             int[] b = new int[stringBitmap.length];
 
             for (int i = 0; i < stringBitmap.length; i++) {
-//            	logger.info( "stringBitmap["+i+"] : "+stringBitmap[i] );
+            	logger.info( "stringBitmap["+i+"] : "+stringBitmap[i] );
                 b[i] = Integer.parseInt(stringBitmap[i]);
             }
 
